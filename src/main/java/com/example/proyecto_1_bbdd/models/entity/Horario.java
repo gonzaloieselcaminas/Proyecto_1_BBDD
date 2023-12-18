@@ -1,4 +1,4 @@
-package com.example.proyecto_1_bbdd.entity;
+package com.example.proyecto_1_bbdd.models.entity;
 
 import jakarta.persistence.*;
 
@@ -8,16 +8,16 @@ import java.sql.Time;
 
 @Entity
 @Table(name = "Horarios")
-public class Horarios {
+public class Horario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_horario")
     private int id_horario;
 
-    public Horarios() {
+    public Horario() {
     }
 
-    public Horarios(int id_clase, Time horaInicio, Time horaFinal, Date fecha) {
+    public Horario(int id_clase, Time horaInicio, Time horaFinal, Date fecha) {
         this.id_clase = id_clase;
         this.horaInicio = horaInicio;
         this.horaFinal = horaFinal;

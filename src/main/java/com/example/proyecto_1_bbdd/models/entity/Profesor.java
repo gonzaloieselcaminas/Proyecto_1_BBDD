@@ -1,20 +1,20 @@
-package com.example.proyecto_1_bbdd.entity;
+package com.example.proyecto_1_bbdd.models.entity;
 
 import jakarta.persistence.*;
 
 
 @Entity
 @Table(name = "Profesores")
-public class Profesores {
+public class Profesor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_profesor")
     private int id_profesor;
 
-    public Profesores() {
+    public Profesor() {
     }
 
-    public Profesores(String nombre, String apellido, int telefono, String nif, String email) {
+    public Profesor(String nombre, String apellido, int telefono, String nif, String email) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.telefono = telefono;
