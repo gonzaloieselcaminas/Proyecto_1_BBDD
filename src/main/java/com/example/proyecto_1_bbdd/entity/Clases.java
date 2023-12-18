@@ -15,13 +15,13 @@ public class Clases implements Serializable {
     private int id;
 
     @Column(name="id_profesor")
-    private String id_profesor;
+    private int id_profesor;
 
     @Column(name="id_curso")
-    private String id_curso;
+    private int id_curso;
 
     @Column(name="id_horario")
-    private String id_horario;
+    private int id_horario;
 
     @Column(name="nombre")
     private String nombre;
@@ -33,7 +33,8 @@ public class Clases implements Serializable {
 
     }
 
-    public Clases(String id_profesor, String id_curso, String id_horario, String nombre, String color) {
+    public Clases(int id, int id_profesor, int id_curso, int id_horario, String nombre, String color) {
+        this.id = id;
         this.id_profesor = id_profesor;
         this.id_curso = id_curso;
         this.id_horario = id_horario;
@@ -49,27 +50,27 @@ public class Clases implements Serializable {
         this.id = id;
     }
 
-    public String getId_profesor() {
+    public int getId_profesor() {
         return id_profesor;
     }
 
-    public void setId_profesor(String id_profesor) {
+    public void setId_profesor(int id_profesor) {
         this.id_profesor = id_profesor;
     }
 
-    public String getId_curso() {
+    public int getId_curso() {
         return id_curso;
     }
 
-    public void setId_curso(String id_curso) {
+    public void setId_curso(int id_curso) {
         this.id_curso = id_curso;
     }
 
-    public String getId_horario() {
+    public int getId_horario() {
         return id_horario;
     }
 
-    public void setId_horario(String id_horario) {
+    public void setId_horario(int id_horario) {
         this.id_horario = id_horario;
     }
 
