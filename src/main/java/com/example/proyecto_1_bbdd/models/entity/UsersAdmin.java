@@ -1,4 +1,4 @@
-package com.example.proyecto_1_bbdd.entity;
+package com.example.proyecto_1_bbdd.models.entity;
 
 import jakarta.persistence.*;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
