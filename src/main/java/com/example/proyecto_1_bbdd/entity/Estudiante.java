@@ -14,7 +14,7 @@ public class Estudiante implements Serializable {
     @Column(name="id")
     private int id;
 
-    @Column(name="nombre_usuario")
+    @Column(name="nombre_usuario", unique = true)
     private String nombre_usuario;
 
     @Column(name="contrasenya")
@@ -118,4 +118,3 @@ public class Estudiante implements Serializable {
         this.fecha_registro = fecha_registro;
     }
 }
-
