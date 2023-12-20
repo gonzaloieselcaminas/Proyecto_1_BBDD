@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 
 
 @Entity
@@ -17,15 +18,16 @@ public class Horario {
     public Horario() {
     }
 
-    public Horario(int id_clase, Time horaInicio, Time horaFinal, Date fecha) {
-        this.id_clase = id_clase;
+    public Horario(List<Clases> clases, Time horaInicio, Time horaFinal, Date fecha) {
+        this.clases = clases;
         this.horaInicio = horaInicio;
         this.horaFinal = horaFinal;
         this.fecha = fecha;
     }
 
-    @Column(name = "id_clase")
-    private int id_clase;
+    @OneToMany
+    @JoinColumn(name = "id_clase")
+    private List<Clases> clases;
 
     @Column(name = "horaInicio")
     private Time horaInicio;
@@ -38,8 +40,8 @@ public class Horario {
         return id_horario;
     }
 
-    public int getId_clase() {
-        return id_clase;
+    public List<Clases> getClases() {
+        return clases;
     }
 
     public Time getHoraInicio() {
@@ -58,8 +60,8 @@ public class Horario {
         this.id_horario = id_horario;
     }
 
-    public void setId_clase(int id_clase) {
-        this.id_clase = id_clase;
+    public void setClases(List<Clases> clase) {
+        this.clases = clases;
     }
 
     public void setHoraInicio(Time horaInicio) {

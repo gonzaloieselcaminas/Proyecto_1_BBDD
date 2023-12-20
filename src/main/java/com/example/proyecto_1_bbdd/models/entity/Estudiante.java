@@ -39,9 +39,7 @@ public class Estudiante implements Serializable {
     @Column(name="fecha_registro")
     private Date fecha_registro;
 
-    public Estudiante() {
-
-    }
+    public Estudiante() {}
 
     public Estudiante(String nombre_usuario, String contrasenya, String email, String nombre, String apellido, int telefono, String dni, Date fecha_registro) {
         this.nombre_usuario = nombre_usuario;

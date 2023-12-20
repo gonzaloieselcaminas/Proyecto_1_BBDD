@@ -13,17 +13,19 @@ public class Matricula {
 
     public Matricula() {}
 
-    public Matricula(int id_curso, int id_alumno, boolean status) {
-        this.id_curso = id_curso;
-        this.id_alumno = id_alumno;
+    public Matricula(Cursos curso, Estudiante estudiante, boolean status) {
+        this.curso = curso;
+        this.estudiante = estudiante;
         this.status = status;
     }
 
-    @Column(name = "id_curso", unique = true)
-    private int id_curso;
+    @OneToOne
+    @JoinColumn(name = "id_curso")
+    private Cursos curso;
 
-    @Column(name = "id_alumno")
-    private int id_alumno;
+    @OneToOne
+    @JoinColumn(name = "id_alumno")
+    private Estudiante estudiante;
     @Column(name = "status")
     private boolean status;
 
@@ -31,12 +33,12 @@ public class Matricula {
         return id_matricula;
     }
 
-    public int getId_curso() {
-        return id_curso;
+    public Cursos getCurso() {
+        return curso;
     }
 
-    public int getId_alumno() {
-        return id_alumno;
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
 
     public boolean isStatus() {
@@ -47,12 +49,12 @@ public class Matricula {
         this.id_matricula = id_matricula;
     }
 
-    public void setId_curso(int id_curso) {
-        this.id_curso = id_curso;
+    public void setId_curso(Cursos id_curso) {
+        this.curso = curso;
     }
 
-    public void setId_alumno(int id_alumno) {
-        this.id_alumno = id_alumno;
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 
     public void setStatus(boolean status) {
