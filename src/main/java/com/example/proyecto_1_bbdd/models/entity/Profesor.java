@@ -2,14 +2,17 @@ package com.example.proyecto_1_bbdd.models.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "Profesores")
 public class Profesor {
-    @Id
+
+    //@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_profesor")
-    private int id_profesor;
+    @OneToMany(mappedBy = "id_profesor")
+    private List <Profesor> profesors;
 
     public Profesor() {
     }
