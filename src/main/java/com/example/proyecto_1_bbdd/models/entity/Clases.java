@@ -14,8 +14,9 @@ public class Clases implements Serializable {
     @Column(name="id")
     private int id;
 
-    @Column(name="id_profesor")
-    private int id_profesor;
+    @ManyToOne
+    @JoinColumn(name="id_profesor")
+    private Profesor id_profesor;
 
     @Column(name="id_curso")
     private int id_curso;
@@ -33,7 +34,7 @@ public class Clases implements Serializable {
 
     }
 
-    public Clases(int id, int id_profesor, int id_curso, int id_horario, String nombre, String color) {
+    public Clases(int id, Profesor id_profesor, int id_curso, int id_horario, String nombre, String color) {
         this.id = id;
         this.id_profesor = id_profesor;
         this.id_curso = id_curso;
@@ -50,11 +51,11 @@ public class Clases implements Serializable {
         this.id = id;
     }
 
-    public int getId_profesor() {
+    public Profesor getId_profesor() {
         return id_profesor;
     }
 
-    public void setId_profesor(int id_profesor) {
+    public void setId_profesor(Profesor id_profesor) {
         this.id_profesor = id_profesor;
     }
 
