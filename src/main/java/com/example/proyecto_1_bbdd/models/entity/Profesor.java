@@ -2,6 +2,8 @@ package com.example.proyecto_1_bbdd.models.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "Profesores")
@@ -34,5 +36,16 @@ public class Profesor {
     private String nif;
     @Column(name = "email", unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "profesor")
+    private List<Clases> clases;
+
+    public List<Clases> getClases() {
+        return clases;
+    }
+
+    public void setClases(List<Clases> clases) {
+        this.clases = clases;
+    }
 
 }
