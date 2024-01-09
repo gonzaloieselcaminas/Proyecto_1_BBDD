@@ -8,20 +8,21 @@ import java.util.List;
 @Entity
 @Table(name = "Profesores")
 public class Profesor {
-    @Id
+
+    //@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_profesor")
-    private int id_profesor;
+    @OneToMany(mappedBy = "id_profesor")
+    private List <Profesor> profesors;
 
     public Profesor() {
     }
 
     public Profesor(String nombre, String apellido, int telefono, String nif, String email) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.nif = nif;
-        this.email = email;
+       this.nombre = nombre;
+       this.apellido = apellido;
+       this.telefono = telefono;
+       this.nif = nif;
+       this.email = email;
     }
 
     @Column(name = "nombre")
@@ -37,7 +38,7 @@ public class Profesor {
     @Column(name = "email", unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "id_profesor")
+    @OneToMany(mappedBy = "profesor")
     private List<Clases> clases;
 
     public List<Clases> getClases() {
