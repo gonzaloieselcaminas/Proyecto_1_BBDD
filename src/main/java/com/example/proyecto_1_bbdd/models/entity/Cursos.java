@@ -3,7 +3,6 @@ package com.example.proyecto_1_bbdd.models.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name ="Cursos")
@@ -36,12 +35,6 @@ public class Cursos {
 
     @Column(name="habilitado")
     private boolean habilitado;
-
-    @ManyToMany(mappedBy = "cursos")
-    private List<Clases> clases;
-
-    @OneToMany(mappedBy = "curso")
-    private List<Matricula> matriculas;
 
     public int getId_course() {
         return id_course;
@@ -90,21 +83,4 @@ public class Cursos {
     public void setHabilitado(boolean habilitado) {
         this.habilitado = habilitado;
     }
-
-    public List<Clases> getClases() {
-        return clases;
-    }
-
-    public void setClases(List<Clases> clases) {
-        this.clases = clases;
-    }
-
-    public List<Matricula> getMatriculas() {
-        return matriculas;
-    }
-
-    public void setMatriculas(List<Matricula> matriculas) {
-        this.matriculas = matriculas;
-    }
-
 }
