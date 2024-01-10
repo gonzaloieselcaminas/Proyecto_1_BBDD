@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "estudiante")
@@ -39,9 +38,6 @@ public class Estudiante implements Serializable {
 
     @Column(name="fecha_registro")
     private Date fecha_registro;
-
-    @OneToMany(mappedBy = "estudiante")
-    private List<Matricula> matriculas;
 
     public Estudiante() {
 
@@ -121,13 +117,4 @@ public class Estudiante implements Serializable {
     public void setFecha_registro(Date fecha_registro) {
         this.fecha_registro = fecha_registro;
     }
-
-    public List<Matricula> getMatriculas() {
-        return matriculas;
-    }
-
-    public void setMatriculas(List<Matricula> matriculas) {
-        this.matriculas = matriculas;
-    }
-
 }

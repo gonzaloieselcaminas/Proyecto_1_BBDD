@@ -13,19 +13,17 @@ public class Matricula {
 
     public Matricula() {}
 
-    public Matricula(Cursos id_curso, Estudiante id_alumno, boolean status) {
+    public Matricula(int id_curso, int id_alumno, boolean status) {
         this.id_curso = id_curso;
         this.id_alumno = id_alumno;
         this.status = status;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_alumno", referencedColumnName = "id")
-    private Estudiante id_alumno;
+    @Column(name = "id_curso", unique = true)
+    private int id_curso;
 
-    @ManyToOne
-    @JoinColumn(name = "id_curso", referencedColumnName = "id_course")
-    private Cursos id_curso;
+    @Column(name = "id_alumno")
+    private int id_alumno;
     @Column(name = "status")
     private boolean status;
 
@@ -33,11 +31,11 @@ public class Matricula {
         return id_matricula;
     }
 
-    public Cursos getId_curso() {
+    public int getId_curso() {
         return id_curso;
     }
 
-    public Estudiante getId_alumno() {
+    public int getId_alumno() {
         return id_alumno;
     }
 
@@ -49,11 +47,11 @@ public class Matricula {
         this.id_matricula = id_matricula;
     }
 
-    public void setId_curso(Cursos id_curso) {
+    public void setId_curso(int id_curso) {
         this.id_curso = id_curso;
     }
 
-    public void setId_alumno(Estudiante id_alumno) {
+    public void setId_alumno(int id_alumno) {
         this.id_alumno = id_alumno;
     }
 

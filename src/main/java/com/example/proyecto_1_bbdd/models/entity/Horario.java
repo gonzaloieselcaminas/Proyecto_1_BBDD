@@ -34,10 +34,6 @@ public class Horario {
     @Column(name = "fecha")
     private Date fecha;
 
-    @ManyToOne
-    @JoinColumn(name = "id_clase", referencedColumnName = "id")
-    private Clases clase;
-
     public int getId_horario() {
         return id_horario;
     }
@@ -77,13 +73,4 @@ public class Horario {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
-    public Clases getClase() {
-        return clase;
-    }
-
-    public void setClase(Clases clase) {
-        this.clase = clase;
-    }
-
 }

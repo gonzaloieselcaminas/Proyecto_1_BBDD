@@ -4,11 +4,10 @@ import jakarta.persistence.*;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "Clases")
-public class    Clases implements Serializable {
+public class Clases implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,19 +15,14 @@ public class    Clases implements Serializable {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_profesor", referencedColumnName = "id_profesor", insertable = false, updatable = false)
+    @JoinColumn(name="id_profesor")
     private Profesor id_profesor;
 
-    @ManyToMany
-    @JoinTable(
-            name = "Cursos_Clases",
-            joinColumns = @JoinColumn(name = "id_clase"),
-            inverseJoinColumns = @JoinColumn(name = "id_course")
-    )
-    private List<Cursos> cursos;
+    @Column(name="id_curso")
+    private int id_curso;
 
-    @OneToMany(mappedBy = "clase")
-    private List<Horario> horarios;
+    @Column(name="id_horario")
+    private int id_horario;
 
     @Column(name="nombre")
     private String nombre;
@@ -40,11 +34,11 @@ public class    Clases implements Serializable {
 
     }
 
-    public Clases(int id, Profesor id_profesor, List<Cursos> cursos, List<Horario> id_horario, String nombre, String color) {
+    public Clases(int id, Profesor id_profesor, int id_curso, int id_horario, String nombre, String color) {
         this.id = id;
         this.id_profesor = id_profesor;
-        this.cursos = cursos;
-        this.horarios = horarios;
+        this.id_curso = id_curso;
+        this.id_horario = id_horario;
         this.nombre = nombre;
         this.color = color;
     }
@@ -65,20 +59,20 @@ public class    Clases implements Serializable {
         this.id_profesor = id_profesor;
     }
 
-    public List<Cursos> getId_curso() {
-        return cursos;
+    public int getId_curso() {
+        return id_curso;
     }
 
-    public void setId_curso(List<Cursos> id_curso) {
-        this.cursos = id_curso;
+    public void setId_curso(int id_curso) {
+        this.id_curso = id_curso;
     }
 
-    public List<Horario> getId_horario() {
-        return horarios;
+    public int getId_horario() {
+        return id_horario;
     }
 
-    public void setId_horario(List<Horario> horarios) {
-        this.horarios = horarios;
+    public void setId_horario(int id_horario) {
+        this.id_horario = id_horario;
     }
 
     public String getNombre() {
@@ -96,6 +90,5 @@ public class    Clases implements Serializable {
     public void setColor(String color) {
         this.color = color;
     }
-
 }
 
