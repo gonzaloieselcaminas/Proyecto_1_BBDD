@@ -38,15 +38,4 @@ public class Profesor {
     @Column(name = "email", unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "profesor")
-    private List<Clases> clases;
-
-    public List<Clases> getClases() {
-        return clases;
-    }
-
-    public void setClases(List<Clases> clases) {
-        this.clases = clases;
-    }
-
 }
