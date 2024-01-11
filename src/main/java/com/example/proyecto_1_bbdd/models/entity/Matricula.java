@@ -13,8 +13,8 @@ public class Matricula {
 
     public Matricula() {}
 
-    public Matricula(Cursos id_curso, Estudiante id_alumno, boolean status) {
-        this.id_curso = id_curso;
+    public Matricula(Cursos curso, Estudiante id_alumno, boolean status) {
+        this.curso = curso;
         this.id_alumno = id_alumno;
         this.status = status;
     }
@@ -24,8 +24,8 @@ public class Matricula {
     private Estudiante id_alumno;
 
     @ManyToOne
-    @JoinColumn(name = "id_curso", referencedColumnName = "id_course")
-    private Cursos id_curso;
+    @JoinColumn(name = "id_course")
+    private Cursos curso;
     @Column(name = "status")
     private boolean status;
 
@@ -33,8 +33,8 @@ public class Matricula {
         return id_matricula;
     }
 
-    public Cursos getId_curso() {
-        return id_curso;
+    public Cursos getCursos() {
+        return curso;
     }
 
     public Estudiante getId_alumno() {
@@ -49,8 +49,8 @@ public class Matricula {
         this.id_matricula = id_matricula;
     }
 
-    public void setId_curso(Cursos id_curso) {
-        this.id_curso = id_curso;
+    public void setCursos(Cursos curso) {
+        this.curso = curso;
     }
 
     public void setId_alumno(Estudiante id_alumno) {

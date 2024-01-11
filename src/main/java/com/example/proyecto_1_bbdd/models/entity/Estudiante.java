@@ -40,7 +40,7 @@ public class Estudiante implements Serializable {
     @Column(name="fecha_registro")
     private Date fecha_registro;
 
-    @OneToMany(mappedBy = "estudiante")
+    @OneToMany(mappedBy = "id_alumno")
     private List<Matricula> matriculas;
 
     public Estudiante() {

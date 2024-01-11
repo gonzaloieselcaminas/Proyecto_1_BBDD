@@ -16,7 +16,7 @@ public class    Clases implements Serializable {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_profesor", referencedColumnName = "id_profesor", insertable = false, updatable = false)
+    @JoinColumn(name = "id_profesor", referencedColumnName = "id_profesor")
     private Profesor id_profesor;
 
     @ManyToMany
@@ -27,7 +27,7 @@ public class    Clases implements Serializable {
     )
     private List<Cursos> cursos;
 
-    @OneToMany(mappedBy = "clase")
+    @OneToMany(mappedBy = "id_clase")
     private List<Horario> horarios;
 
     @Column(name="nombre")
@@ -98,4 +98,3 @@ public class    Clases implements Serializable {
     }
 
 }
-
