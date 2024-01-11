@@ -2,6 +2,8 @@ package com.example.proyecto_1_bbdd.models.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "Profesores")
@@ -15,11 +17,11 @@ public class Profesor {
     }
 
     public Profesor(String nombre, String apellido, int telefono, String nif, String email) {
-       this.nombre = nombre;
-       this.apellido = apellido;
-       this.telefono = telefono;
-       this.nif = nif;
-       this.email = email;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.nif = nif;
+        this.email = email;
     }
 
     @Column(name = "nombre")
@@ -34,5 +36,16 @@ public class Profesor {
     private String nif;
     @Column(name = "email", unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "id_profesor")
+    private List<Clases> clases;
+
+    public List<Clases> getClases() {
+        return clases;
+    }
+
+    public void setClases(List<Clases> clases) {
+        this.clases = clases;
+    }
 
 }
