@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Clases")
-public class    Clases implements Serializable {
+public class Clases implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class    Clases implements Serializable {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_profesor", referencedColumnName = "id_profesor")
+    @JoinColumn(name = "id_profesor", referencedColumnName = "id_profesor", insertable = false, updatable = false)
     private Profesor id_profesor;
 
     @ManyToMany
@@ -27,7 +27,7 @@ public class    Clases implements Serializable {
     )
     private List<Cursos> cursos;
 
-    @OneToMany(mappedBy = "id_clase")
+    @OneToMany(mappedBy = "clase")
     private List<Horario> horarios;
 
     @Column(name="nombre")
@@ -35,6 +35,9 @@ public class    Clases implements Serializable {
 
     @Column(name="color")
     private String color;
+
+    @ManyToMany(mappedBy = "clases")
+    private List<Notas> notas;
 
     public Clases() {
 
@@ -98,3 +101,4 @@ public class    Clases implements Serializable {
     }
 
 }
+
