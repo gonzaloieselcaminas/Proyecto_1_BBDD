@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "estudiante")
@@ -36,18 +37,31 @@ public class Estudiante implements Serializable {
     @Column(name="dni")
     private String dni;
 
+    @Column(name = "notificaciones_activadas", columnDefinition = "boolean default false")
+    private boolean notificaciones_activadas;
+
     @Column(name="fecha_registro")
     private Date fecha_registro;
 
-    public Estudiante() {}
+    @OneToMany(mappedBy = "id_alumno")
+    private List<Matricula> matriculas;
 
-    public Estudiante(String nombre_usuario, String contrasenya, String email, String nombre, String apellido, int telefono, String dni, Date fecha_registro) {
+    @ManyToMany(mappedBy = "estudiantes")
+    private List<Notas> notas;
+
+
+    public Estudiante() {
+
+    }
+
+    public Estudiante(String nombre_usuario, String contrasenya, String email, String nombre, String apellido, int telefono, boolean notificaciones_activadas ,String dni, Date fecha_registro) {
         this.nombre_usuario = nombre_usuario;
         this.contrasenya = contrasenya;
         this.email = email;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
+        this.notificaciones_activadas = notificaciones_activadas;
         this.dni = dni;
         this.fecha_registro = fecha_registro;
     }
@@ -115,4 +129,22 @@ public class Estudiante implements Serializable {
     public void setFecha_registro(Date fecha_registro) {
         this.fecha_registro = fecha_registro;
     }
+
+    public boolean getNotificaciones_activadas() {
+        return notificaciones_activadas;
+    }
+
+    public void setNotificaciones_activadas(boolean notificaciones_activadas) {
+        this.notificaciones_activadas = notificaciones_activadas;
+    }
+
+
+    public List<Matricula> getMatriculas() {
+        return matriculas;
+    }
+
+    public void setMatriculas(List<Matricula> matriculas) {
+        this.matriculas = matriculas;
+    }
+
 }
