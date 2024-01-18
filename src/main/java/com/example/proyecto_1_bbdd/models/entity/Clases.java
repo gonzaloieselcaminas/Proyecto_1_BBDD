@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Clases")
-public class    Clases implements Serializable {
+public class Clases implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +35,9 @@ public class    Clases implements Serializable {
 
     @Column(name="color")
     private String color;
+
+    @ManyToMany(mappedBy = "clases")
+    private List<Notas> notas;
 
     public Clases() {
 
