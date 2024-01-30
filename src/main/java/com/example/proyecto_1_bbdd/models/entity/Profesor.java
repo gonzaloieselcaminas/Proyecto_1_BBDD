@@ -17,11 +17,11 @@ public class Profesor {
     }
 
     public Profesor(String nombre, String apellido, int telefono, String nif, String email) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.nif = nif;
-        this.email = email;
+       this.nombre = nombre;
+       this.apellido = apellido;
+       this.telefono = telefono;
+       this.nif = nif;
+       this.email = email;
     }
 
     @Column(name = "nombre")

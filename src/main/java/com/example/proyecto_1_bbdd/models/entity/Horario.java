@@ -17,12 +17,15 @@ public class Horario {
     public Horario() {
     }
 
-    public Horario(Clases id_clase, Time horaInicio, Time horaFinal, Date fecha) {
+    public Horario(int id_clase, Time horaInicio, Time horaFinal, Date fecha) {
         this.id_clase = id_clase;
         this.horaInicio = horaInicio;
         this.horaFinal = horaFinal;
         this.fecha = fecha;
     }
+
+    @Column(name = "id_clase", insertable=false, updatable=false)
+    private int id_clase;
 
     @Column(name = "horaInicio")
     private Time horaInicio;
@@ -33,13 +36,13 @@ public class Horario {
 
     @ManyToOne
     @JoinColumn(name = "id_clase", referencedColumnName = "id")
-    private Clases id_clase;
+    private Clases clase;
 
     public int getId_horario() {
         return id_horario;
     }
 
-    public Clases getId_clase() {
+    public int getId_clase() {
         return id_clase;
     }
 
@@ -59,7 +62,7 @@ public class Horario {
         this.id_horario = id_horario;
     }
 
-    public void setId_clase(Clases id_clase) {
+    public void setId_clase(int id_clase) {
         this.id_clase = id_clase;
     }
 
@@ -73,6 +76,14 @@ public class Horario {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public Clases getClase() {
+        return clase;
+    }
+
+    public void setClase(Clases clase) {
+        this.clase = clase;
     }
 
 }
