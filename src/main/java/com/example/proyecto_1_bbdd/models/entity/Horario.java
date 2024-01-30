@@ -24,7 +24,7 @@ public class Horario {
         this.fecha = fecha;
     }
 
-    @Column(name = "id_clase")
+    @Column(name = "id_clase", insertable=false, updatable=false)
     private int id_clase;
 
     @Column(name = "horaInicio")
