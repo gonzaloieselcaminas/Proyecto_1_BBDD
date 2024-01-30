@@ -13,14 +13,6 @@
             <i class="fa fa-home" aria-hidden="true"></i>
             Home
         </a>
-        <a href="#" class="nav-item">
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-            About
-        </a>
-        <a href="#" class="nav-item">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            Services
-        </a>
     </div>
     <div class="nav-center">
         <a href="#" class="nav-item">
@@ -37,9 +29,10 @@
             <i class="fa fa-user-plus" aria-hidden="true"></i>
             Sign Up
         </a>
-        <a href="#" class="nav-item">
+        <form id="logOutForm" action="#" th:action="@{/logout}" method="POST" style="display: none"></form>
+        <a href="#" class="nav-item" onclick="document.getElementById('logOutForm').submit();">
             <i class="fa fa-sign-in" aria-hidden="true"></i>
-            Sign in
+            Log out
         </a>
     </div>
 </nav>
