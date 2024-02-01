@@ -7,6 +7,7 @@ import java.util.List;
 public interface ClasesDAO {
     void save(Clases clases);
      Clases getClase (int id);
-
      List<Clases> getAllClases();
+    void deleteClase(int id);
+    void deleteAllClases();
 }

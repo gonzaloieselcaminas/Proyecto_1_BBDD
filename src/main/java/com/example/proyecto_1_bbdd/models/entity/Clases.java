@@ -47,7 +47,7 @@ public class Clases implements Serializable {
         this.id = id;
         this.id_profesor = id_profesor;
         this.cursos = cursos;
-        this.horarios = horarios;
+        this.horarios = id_horario;
         this.nombre = nombre;
         this.color = color;
     }
@@ -100,5 +100,12 @@ public class Clases implements Serializable {
         this.color = color;
     }
 
+    public List<Notas> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(List<Notas> notas) {
+        this.notas = notas;
+    }
 }
 
