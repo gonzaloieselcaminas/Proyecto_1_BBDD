@@ -2,6 +2,8 @@ package com.example.proyecto_1_bbdd.models.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "Profesores")
