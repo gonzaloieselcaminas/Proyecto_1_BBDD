@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 
 
 @Entity
@@ -17,11 +18,11 @@ public class Horario {
     public Horario() {
     }
 
-    public Horario(int id_clase, Time horaInicio, Time horaFinal, Date fecha) {
+    public Horario(int id_clase, Time horaInicio, Time horaFinal, String fecha) {
         this.id_clase = id_clase;
         this.horaInicio = horaInicio;
         this.horaFinal = horaFinal;
-        this.fecha = fecha;
+        this.fecha = LocalDate.parse(fecha);
     }
 
     @Column(name = "id_clase", insertable=false, updatable=false)
@@ -32,7 +33,7 @@ public class Horario {
     @Column(name = "horaFinal")
     private Time horaFinal;
     @Column(name = "fecha")
-    private Date fecha;
+    private LocalDate fecha;
 
     @ManyToOne
     @JoinColumn(name = "id_clase", referencedColumnName = "id")
@@ -54,7 +55,7 @@ public class Horario {
         return horaFinal;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
@@ -74,7 +75,7 @@ public class Horario {
         this.horaFinal = horaFinal;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
