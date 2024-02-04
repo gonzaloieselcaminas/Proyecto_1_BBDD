@@ -27,7 +27,7 @@ public class Clases implements Serializable {
     )
     private List<Cursos> cursos;
 
-    @OneToMany(mappedBy = "clase")
+    @OneToMany(mappedBy = "id_horario")
     private List<Horario> horarios;
 
     @Column(name="nombre")
