@@ -37,7 +37,7 @@ public class Profesor {
     @Column(name = "email", unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "profesor")
+    @OneToMany(mappedBy = "id_profesor")
     private List<Clases> clases;
 
     public List<Clases> getClases() {

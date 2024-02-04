@@ -19,7 +19,7 @@ public class Matricula {
         this.status = status;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_curso")
     private Cursos curso;
 
