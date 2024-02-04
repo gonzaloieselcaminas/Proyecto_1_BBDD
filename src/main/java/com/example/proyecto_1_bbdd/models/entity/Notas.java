@@ -71,4 +71,11 @@ public class Notas {
         this.estudiantes = estudiantes;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
