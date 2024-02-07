@@ -19,6 +19,5 @@ public class profesorController {
     @GetMapping ("/myHorario")
     public String showMyHorario(){return "profesorHorario";}
 
-    @GetMapping("/profesorConfig")
-    public String showConfig() {return "profesorConfig";}
+
 }

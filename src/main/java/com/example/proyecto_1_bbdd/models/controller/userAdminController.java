@@ -7,4 +7,10 @@ public class userAdminController {
     public String showHomeUserAdmin() {
         return "userAdminHome";
     }
+
+    @GetMapping("/profesorConfig")
+    public String showProfesorConfig() {return "profesorConfig";}
+
+    @GetMapping("/estudianteConfig")
+    public String showEstudianteConfig() {return "estudianteConfig";}
 }

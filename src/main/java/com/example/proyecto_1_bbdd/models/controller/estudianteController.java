@@ -20,7 +20,7 @@ public class estudianteController {
     public String showMyHorario(){return "estudianteHorario";}
 
     @GetMapping("/estudianteConfig")
-    public String showConfig() {return "estufianteConfig";}
+    public String showConfig() {return "estudianteConfig";}
 
 
 
