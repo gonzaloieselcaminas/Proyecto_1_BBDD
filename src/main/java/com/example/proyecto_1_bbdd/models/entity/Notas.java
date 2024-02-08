@@ -18,25 +18,21 @@ public class Notas {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @ManyToMany
-    @JoinTable(
-            name = "Notas_Clases",
-            joinColumns = @JoinColumn(name = "id_nota"),
-            inverseJoinColumns = @JoinColumn(name = "id_clase")
-    )
-    private List<Clases> clases;
+    @OneToOne
+    private Clases clase;
 
-    @ManyToMany
-    @JoinTable(
-            name = "Notas_Estudiante",
-            joinColumns = @JoinColumn(name = "id_nota"),
-            inverseJoinColumns = @JoinColumn(name = "id_estudiante")
-    )
-    private List<Estudiante> estudiantes;
+    @OneToOne
+    private Estudiante estudiante;
 
-    public Notas(int nota, String descripcion) {
+    public Notas(int nota, String descripcion, Estudiante estudiante, Clases clase) {
         this.nota = nota;
         this.descripcion = descripcion;
+        this.estudiante = estudiante;
+        this.clase = clase;
+    }
+
+    public Notas() {
+
     }
 
     public float getNota() {
@@ -55,20 +51,20 @@ public class Notas {
         this.descripcion = descripcion;
     }
 
-    public List<Clases> getClases() {
-        return clases;
+    public Clases getClase() {
+        return clase;
     }
 
-    public void setClases(List<Clases> clases) {
-        this.clases = clases;
+    public void setClase(Clases clase) {
+        this.clase = clase;
     }
 
-    public List<Estudiante> getEstudiantes() {
-        return estudiantes;
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
 
-    public void setEstudiantes(List<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 
     public int getId() {

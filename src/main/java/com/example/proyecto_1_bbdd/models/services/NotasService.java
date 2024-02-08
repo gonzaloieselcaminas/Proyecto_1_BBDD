@@ -34,9 +34,9 @@ public class NotasService implements INotasService {
     public Notas update(Notas notas) {
         Notas currentNotas = notasDAO.findById((long) notas.getId()).get();
         currentNotas.setNota(notas.getNota());
-        currentNotas.setClases(notas.getClases());
+        currentNotas.setClase(notas.getClase());
         currentNotas.setDescripcion(notas.getDescripcion());
-        currentNotas.setEstudiantes(notas.getEstudiantes());
+        currentNotas.setEstudiante(notas.getEstudiante());
         return notasDAO.save(currentNotas);
     }
 
