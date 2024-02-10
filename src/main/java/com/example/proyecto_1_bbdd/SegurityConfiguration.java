@@ -23,10 +23,9 @@ public class SegurityConfiguration {
         UserDetails susan = User.builder().
                 username("Pedro").
                 password("{noop}test123").
-                roles("PROFESSOR", "ADMIN" ).build();
+                roles("PROFESOR", "ADMIN" ).build();
         return new InMemoryUserDetailsManager(john, mary, susan);
     }
-
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{

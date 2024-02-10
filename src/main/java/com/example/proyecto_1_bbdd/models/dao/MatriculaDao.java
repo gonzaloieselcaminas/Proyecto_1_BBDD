@@ -1,18 +1,10 @@
 package com.example.proyecto_1_bbdd.models.dao;
 
 import com.example.proyecto_1_bbdd.models.entity.Matricula;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface MatriculaDao {
-    public void save(Matricula matricula);
+public interface MatriculaDao extends JpaRepository<Matricula, Long> {
 
-    Matricula getMatricula(int id);
-
-    List<Matricula> getAllMatriculas();
-
-    public void deleteMatricula(int id);
-    public void deleteAllMatriculas();
-
-    Matricula updateMatricula(Matricula matricula);
 }

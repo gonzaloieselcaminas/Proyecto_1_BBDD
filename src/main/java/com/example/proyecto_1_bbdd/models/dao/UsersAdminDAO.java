@@ -1,15 +1,10 @@
 package com.example.proyecto_1_bbdd.models.dao;
 
 import com.example.proyecto_1_bbdd.models.entity.UsersAdmin;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface UsersAdminDAO {
-    void save(UsersAdmin usersAdmin);
+public interface UsersAdminDAO extends JpaRepository<UsersAdmin, Long> {
 
-    public void delete(int id);
-
-    UsersAdmin getUserAdmin(int id);
-
-    List<UsersAdmin> getAllUsersAdmin();
 }

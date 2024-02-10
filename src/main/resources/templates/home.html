@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org" xmlns:sec="http://wwww.thymeleaf.org/extras/sping-security">
 <head>
     <link th:href = "@{/css/styles.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -12,14 +12,6 @@
         <a href="#" class="nav-item">
             <i class="fa fa-home" aria-hidden="true"></i>
             Home
-        </a>
-        <a href="#" class="nav-item">
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-            About
-        </a>
-        <a href="#" class="nav-item">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            Services
         </a>
     </div>
     <div class="nav-center">
@@ -34,14 +26,31 @@
     </div>
     <div class="nav-right">
         <a href="#" class="nav-item">
-            <i class="fa fa-user-plus" aria-hidden="true"></i>
-            Sign Up
+            <i class="fa fa-user" aria-hidden="true"></i>
+            Myself
         </a>
-        <a href="#" class="nav-item">
+        <form id="logOutForm" action="#" th:action="@{/logout}" method="POST" style="display: none"></form>
+        <a href="#" class="nav-item" onclick="document.getElementById('logOutForm').submit();">
             <i class="fa fa-sign-in" aria-hidden="true"></i>
-            Sign in
+            Log out
         </a>
     </div>
 </nav>
+<div style="padding: 10%; align-content: center">
+    <div style="height: 60%; width: 20%; background-color: aqua">
+        <div style="height: 30%; width: 100%; align-content: center">
+            <img src="/images/EXPEDIENTES_PNG.png" alt="Expedientes_img" style="height: 80%; width: 80%">
+        </div>
+        <div style="align-content: baseline">
+            <a class="card-item" href="#"><h2>Expediente</h2></a>
+        </div>
+    </div>
+    <div sec:authorize="hasRole('PROFESSOR')">
+
+    </div>
+    <div sec:authorize="hasRole('ADMIN')">
+
+    </div>
+</div>
 </body>
 </html>

@@ -3,8 +3,8 @@ package com.example.proyecto_1_bbdd.models.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "estudiante")
@@ -37,33 +37,20 @@ public class Estudiante implements Serializable {
     @Column(name="dni")
     private String dni;
 
-    @Column(name = "notificaciones_activadas", columnDefinition = "boolean default false")
-    private boolean notificaciones_activadas;
-
     @Column(name="fecha_registro")
-    private Date fecha_registro;
+    private LocalDate fecha_registro;
 
-    @OneToMany(mappedBy = "id_alumno")
-    private List<Matricula> matriculas;
+    public Estudiante() {}
 
-    @ManyToMany(mappedBy = "estudiantes")
-    private List<Notas> notas;
-
-
-    public Estudiante() {
-
-    }
-
-    public Estudiante(String nombre_usuario, String contrasenya, String email, String nombre, String apellido, int telefono, boolean notificaciones_activadas ,String dni, Date fecha_registro) {
+    public Estudiante(String nombre_usuario, String contrasenya, String email, String nombre, String apellido, int telefono, String dni, String fecha_registro) {
         this.nombre_usuario = nombre_usuario;
         this.contrasenya = contrasenya;
         this.email = email;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
-        this.notificaciones_activadas = notificaciones_activadas;
         this.dni = dni;
-        this.fecha_registro = fecha_registro;
+        this.fecha_registro = LocalDate.parse(fecha_registro);
     }
 
     public String getNombre_usuario() {
@@ -122,29 +109,19 @@ public class Estudiante implements Serializable {
         this.dni = dni;
     }
 
-    public Date getFecha_registro() {
+    public LocalDate getFecha_registro() {
         return fecha_registro;
     }
 
-    public void setFecha_registro(Date fecha_registro) {
+    public void setFecha_registro(LocalDate fecha_registro) {
         this.fecha_registro = fecha_registro;
     }
 
-    public boolean getNotificaciones_activadas() {
-        return notificaciones_activadas;
+    public int getId() {
+        return id;
     }
 
-    public void setNotificaciones_activadas(boolean notificaciones_activadas) {
-        this.notificaciones_activadas = notificaciones_activadas;
+    public void setId(int id) {
+        this.id = id;
     }
-
-
-    public List<Matricula> getMatriculas() {
-        return matriculas;
-    }
-
-    public void setMatriculas(List<Matricula> matriculas) {
-        this.matriculas = matriculas;
-    }
-
 }
