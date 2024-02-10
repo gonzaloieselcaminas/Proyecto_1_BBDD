@@ -36,18 +36,13 @@ public class Clases implements Serializable {
     @Column(name="color")
     private String color;
 
-    @ManyToMany(mappedBy = "clases")
-    private List<Notas> notas;
-
     public Clases() {
 
     }
 
-    public Clases(int id, Profesor id_profesor, List<Cursos> cursos, List<Horario> id_horario, String nombre, String color) {
-        this.id = id;
+    public Clases(Profesor id_profesor, List<Cursos> cursos,  String nombre, String color) {
         this.id_profesor = id_profesor;
         this.cursos = cursos;
-        this.horarios = horarios;
         this.nombre = nombre;
         this.color = color;
     }
@@ -99,6 +94,5 @@ public class Clases implements Serializable {
     public void setColor(String color) {
         this.color = color;
     }
-
 }
 

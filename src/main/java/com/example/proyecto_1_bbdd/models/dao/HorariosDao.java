@@ -1,13 +1,10 @@
 package com.example.proyecto_1_bbdd.models.dao;
 
 import com.example.proyecto_1_bbdd.models.entity.Horario;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface HorariosDao {
-    public void save(Horario horario);
-    Horario getHorario(int id);
-    List<Horario> getHorarios();
-    void deleteHorario(int id);
-    void deleteAllHorarios();
+public interface  HorariosDao extends JpaRepository<Horario, Long> {
+
 }

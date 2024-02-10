@@ -3,6 +3,7 @@ package com.example.proyecto_1_bbdd.models.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -37,11 +38,11 @@ public class Estudiante implements Serializable {
     private String dni;
 
     @Column(name="fecha_registro")
-    private Date fecha_registro;
+    private LocalDate fecha_registro;
 
     public Estudiante() {}
 
-    public Estudiante(String nombre_usuario, String contrasenya, String email, String nombre, String apellido, int telefono, String dni, Date fecha_registro) {
+    public Estudiante(String nombre_usuario, String contrasenya, String email, String nombre, String apellido, int telefono, String dni, String fecha_registro) {
         this.nombre_usuario = nombre_usuario;
         this.contrasenya = contrasenya;
         this.email = email;
@@ -49,7 +50,7 @@ public class Estudiante implements Serializable {
         this.apellido = apellido;
         this.telefono = telefono;
         this.dni = dni;
-        this.fecha_registro = fecha_registro;
+        this.fecha_registro = LocalDate.parse(fecha_registro);
     }
 
     public String getNombre_usuario() {
@@ -108,11 +109,19 @@ public class Estudiante implements Serializable {
         this.dni = dni;
     }
 
-    public Date getFecha_registro() {
+    public LocalDate getFecha_registro() {
         return fecha_registro;
     }
 
-    public void setFecha_registro(Date fecha_registro) {
+    public void setFecha_registro(LocalDate fecha_registro) {
         this.fecha_registro = fecha_registro;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -1,7 +1,9 @@
 package com.example.proyecto_1_bbdd.models.entity;
 
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -15,11 +17,11 @@ public class Cursos {
 
     public Cursos() {};
 
-    public Cursos(String nombre, String descripcion, Date fechaInicio, Date fechaFinal, boolean habilitado) {
+    public Cursos(String nombre, String descripcion, String fechaInicio, String fechaFinal, boolean habilitado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.fechaFinal = fechaFinal;
-        this.fechaInicio = fechaInicio;
+        this.fechaFinal = LocalDate.parse(fechaFinal);
+        this.fechaInicio = LocalDate.parse(fechaInicio);
         this.habilitado = habilitado;
     }
 
@@ -29,10 +31,10 @@ public class Cursos {
     @Column(name="descripcion")
     private String descripcion;
     @Column(name="fechaInicio")
-    private Date fechaInicio;
+    private LocalDate fechaInicio;
 
     @Column(name="fechaFinal")
-    private Date fechaFinal;
+    private LocalDate fechaFinal;
 
     @Column(name="habilitado")
     private boolean habilitado;
@@ -55,11 +57,11 @@ public class Cursos {
         return descripcion;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public Date getFechaFinal() {
+    public LocalDate getFechaFinal() {
         return fechaFinal;
     }
 
@@ -79,11 +81,11 @@ public class Cursos {
         this.descripcion = descripcion;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public void setFechaFinal(Date fechaFinal) {
+    public void setFechaFinal(LocalDate fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 

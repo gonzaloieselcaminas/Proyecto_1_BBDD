@@ -19,7 +19,7 @@ public class Matricula {
         this.status = status;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_curso")
     private Cursos curso;
 
@@ -59,5 +59,13 @@ public class Matricula {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setCurso(Cursos curso) {
+        this.curso = curso;
     }
 }

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.List;
+import java.time.LocalDate;
 
 
 @Entity
@@ -18,30 +18,33 @@ public class Horario {
     public Horario() {
     }
 
-    public Horario(List<Clases> clases, Time horaInicio, Time horaFinal, Date fecha) {
-        this.clases = clases;
+    public Horario(int id_clase, Time horaInicio, Time horaFinal, String fecha) {
+        this.id_clase = id_clase;
         this.horaInicio = horaInicio;
         this.horaFinal = horaFinal;
-        this.fecha = fecha;
+        this.fecha = LocalDate.parse(fecha);
     }
 
-    @OneToMany
-    @JoinColumn(name = "id_clase")
-    private List<Clases> clases;
+    @Column(name = "id_clase", insertable=false, updatable=false)
+    private int id_clase;
 
     @Column(name = "horaInicio")
     private Time horaInicio;
     @Column(name = "horaFinal")
     private Time horaFinal;
     @Column(name = "fecha")
-    private Date fecha;
+    private LocalDate fecha;
+
+    @ManyToOne
+    @JoinColumn(name = "id_clase", referencedColumnName = "id")
+    private Clases clase;
 
     public int getId_horario() {
         return id_horario;
     }
 
-    public List<Clases> getClases() {
-        return clases;
+    public int getId_clase() {
+        return id_clase;
     }
 
     public Time getHoraInicio() {
@@ -52,7 +55,7 @@ public class Horario {
         return horaFinal;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
@@ -60,8 +63,8 @@ public class Horario {
         this.id_horario = id_horario;
     }
 
-    public void setClases(List<Clases> clase) {
-        this.clases = clases;
+    public void setId_clase(int id_clase) {
+        this.id_clase = id_clase;
     }
 
     public void setHoraInicio(Time horaInicio) {
@@ -72,7 +75,16 @@ public class Horario {
         this.horaFinal = horaFinal;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
+
+    public Clases getClase() {
+        return clase;
+    }
+
+    public void setClase(Clases clase) {
+        this.clase = clase;
+    }
+
 }
