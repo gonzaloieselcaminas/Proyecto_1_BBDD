@@ -30,7 +30,9 @@ public class SegurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(configuer ->
-                        configuer.anyRequest().authenticated())
+                        configuer
+                                .anyRequest().authenticated()
+                                )
                 .formLogin(form ->
                         form.loginPage("/showMyLoginPage")
                                 .loginProcessingUrl("/authenticateTheUser")

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos</title>
+</head>
+<body>
+    <h1>
+        Cursos
+    </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha Final</th>
+                <th>Habilitado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="curso : ${cursos}">
+                <th th:text="${curso.getId_course()}"></th>
+                <th th:text="${curso.getNombre()}"></th>
+                <th th:text="${curso.getDescripcion()}"></th>
+                <th th:text="${curso.getFechaInicio()}"></th>
+                <th th:text="${curso.getFechaFinal()}"></th>
+                <th th:text="${curso.isHabilitado()}"></th>
+                <th>
+                    <form id="borrarCurso" action="#" method="post" th:action="@{/cursos/delete}" th:object="${extra}">
+                        <input type="hidden" th:field="*{value}" th:value="${curso.getId_course()}" required>
+                        <input type="submit" value="Borrar">
+                    </form>
+                </th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>
+                    <a th:href="@{/cursos/nueva}">
+                        Añadir curso
+                    </a>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <script th:inline="javascript">
+        window.onload = function() {
+            const deleteModalButton = document.getElementById('deleteButton');
+
+            console.log("Prueba")
+
+
+            deleteModalButton.addEventListener('click', async (e) => {
+                const menuId = e.currentTarget.dataset.id;
+                console.log(menuId)
+                try{
+                    await fetch(`api/cursos/${menuId}`, { method:
+                            'DELETE' ,
+                        credentials: 'include' });
+                } catch (error) {
+                    console.log('error')
+                }
+            })
+
+        };
+    </script>
+</body>
+</html>

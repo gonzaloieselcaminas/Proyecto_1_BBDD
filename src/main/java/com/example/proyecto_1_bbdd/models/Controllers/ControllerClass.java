@@ -1,4 +1,4 @@
-package com.example.proyecto_1_bbdd;
+package com.example.proyecto_1_bbdd.models.Controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -8,8 +8,6 @@ public class ControllerClass {
     public String showHome() {
         return "home";
     }
-
-
 
 
     @GetMapping("/showMyLoginPage")
