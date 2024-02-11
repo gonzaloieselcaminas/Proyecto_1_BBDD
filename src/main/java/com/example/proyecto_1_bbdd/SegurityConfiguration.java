@@ -31,6 +31,7 @@ public class SegurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(configuer ->
                         configuer
+                                .requestMatchers("/cursos/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                                 )
                 .formLogin(form ->

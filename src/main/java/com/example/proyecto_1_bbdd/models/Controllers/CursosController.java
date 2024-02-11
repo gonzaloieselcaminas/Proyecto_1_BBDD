@@ -28,6 +28,19 @@ public class CursosController {
     }
 
 
+    @GetMapping("/cursos/update")
+    public String updateClases(Model model, @ModelAttribute("curso") Cursos curso) {
+        model.addAttribute("newCurso", new Cursos());
+        model.addAttribute("curso", curso);
+        return "update-curso";
+    }
+
+    @PutMapping("/cursos/actualiza")
+    public String actualizaClases(Model model, @ModelAttribute("curso") Cursos curso) {
+        cursosService.update(curso);
+        return "redirect:/cursos";
+    }
+
     @PostMapping("/cursos/save")
     public String newMenu(Model model, @ModelAttribute("curso") Cursos cursos) {
         cursosService.create(cursos);

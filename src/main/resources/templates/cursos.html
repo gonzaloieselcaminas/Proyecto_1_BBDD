@@ -33,6 +33,11 @@
                         <input type="submit" value="Borrar">
                     </form>
                 </th>
+                <th>
+                    <form id="updateCurso" action="#" method="post" th:action="@{/cursos/update}" th:object="${curso}">
+                        <input type="submit" value="Update">
+                    </form>
+                </th>
             </tr>
             <tr>
                 <th></th>
