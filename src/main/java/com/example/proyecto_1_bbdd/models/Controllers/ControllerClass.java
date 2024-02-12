@@ -14,4 +14,8 @@ public class ControllerClass {
     public String showLoginPage() {
         return "plain-login";
     }
+    @GetMapping("/access-denied")
+    public String showError() {
+        return "not-authorized";
+    }
 }

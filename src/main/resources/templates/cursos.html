@@ -28,8 +28,9 @@
                 <th th:text="${curso.getFechaFinal()}"></th>
                 <th th:text="${curso.isHabilitado()}"></th>
                 <th>
-                    <form id="borrarCurso" action="#" method="post" th:action="@{/cursos/delete}" th:object="${extra}">
-                        <input type="hidden" th:field="*{value}" th:value="${curso.getId_course()}" required>
+                    <form id="borrarCurso" method="post" th:action="@{/cursos/delete}">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                        <input type="hidden" name="id" th:value="${curso.getId_course()}">
                         <input type="submit" value="Borrar">
                     </form>
                 </th>

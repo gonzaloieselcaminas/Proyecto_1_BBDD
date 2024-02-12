@@ -47,9 +47,9 @@ public class CursosController {
         return "redirect:/cursos";
     }
 
-    @DeleteMapping("/cursos/delete")
-    public String newMenu(Model model, @ModelAttribute("curso") Extra curso) {
-        cursosService.delete(curso.getValue());
+    @PostMapping("/cursos/delete")
+    public String newMenu(Model model, @RequestParam long id) {
+        cursosService.delete((int) id);
         return "redirect:/cursos";
     }
 }
