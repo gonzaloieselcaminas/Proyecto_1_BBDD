@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update curso</title>
+</head>
+<body>
+<form id="crearCursoForm" action="#" method="post" th:action="@{/cursos/actualiza}" th:object="${newCurso}">
+    <label for="nombre">Nombre del Curso:</label><br>
+    <input th:field="*{nombre}" type="text" id="nombre" name="nombre" required><br>
+
+    <label for="descripcion">Descripción:</label><br>
+    <textarea th:field="*{descripcion}" id="descripcion" name="descripcion" required></textarea><br>
+
+    <label for="fechaInicio">Fecha de Inicio:</label><br>
+    <input th:field="*{fechaInicio}" type="date" id="fechaInicio" name="fechaInicio" required><br>
+
+    <label for="fechaFinal">Fecha de Finalización:</label><br>
+    <input th:field="*{fechaFinal}" type="date" id="fechaFinal" name="fechaFinal" required><br>
+
+    <label for="habilitado">Habilitado:</label><br>
+    <input th:field="*{habilitado}" type="checkbox" id="habilitado" name="habilitado" value="true"><br>
+
+    <input type="submit" value="Crear Curso">
+</form>
+
+</body>
+</html>

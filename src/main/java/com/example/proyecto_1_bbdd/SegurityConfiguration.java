@@ -23,7 +23,7 @@ public class SegurityConfiguration {
         UserDetails susan = User.builder().
                 username("Pedro").
                 password("{noop}test123").
-                roles("PROFESOR", "ADMIN" ).build();
+                roles("PROFESSOR", "ADMIN" ).build();
         return new InMemoryUserDetailsManager(john, mary, susan);
     }
 
@@ -31,7 +31,7 @@ public class SegurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(configuer ->
                         configuer
-                                .requestMatchers("/cursos/**").hasRole("ADMIN")
+                                .requestMatchers("/cursos/**").hasRole("PROFESSOR")
                                 .anyRequest().authenticated()
                                 )
                 .formLogin(form ->

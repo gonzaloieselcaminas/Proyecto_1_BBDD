@@ -28,10 +28,10 @@ public class CursosController {
     }
 
 
-    @GetMapping("/cursos/update")
-    public String updateClases(Model model, @ModelAttribute("curso") Cursos curso) {
+    @GetMapping("/cursos/update/{id}")
+    public String updateClases(Model model, @PathVariable int id) {
+        model.addAttribute("oldCurso", cursosService.findById(id));
         model.addAttribute("newCurso", new Cursos());
-        model.addAttribute("curso", curso);
         return "update-curso";
     }
 
